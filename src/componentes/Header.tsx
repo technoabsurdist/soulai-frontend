@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({
           <input
             type="text"
             name="nota"
-            placeholder="Escreva uma nova nota..."
+            placeholder="What are you thinking..."
             value={novaNota}
             onChange={(e) => onNovaNotaChange(e.target.value)}
             className="w-full bg-zinc-700 bg-opacity-40 rounded border border-zinc-500 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
