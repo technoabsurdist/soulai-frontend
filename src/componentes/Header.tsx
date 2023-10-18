@@ -21,13 +21,13 @@ const Header: React.FC<HeaderProps> = ({
         <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white">
           Soul
         </h1>
-        <h2 className="text-xs text-indigo-500 tracking-widest font-medium uppercase">
-          Organize your thoughts and pinpoint behavioral patterns. <br /> 
-          Most importantly, decode your subconscious and discover your inner realm. 
+        <h2 className="text-s text-indigo-500 tracking-widest font-medium uppercase">
+          Organize your thoughts and pinpoint behavioral patterns; <br /> 
+          Decode your subconscious and discover your inner realm. 
         </h2>
       </div>
 
-      <div className="flex w-full lg:flex-row flex-col mx-auto  items-end sm:space-x-4 sm:space-y-0 space-y-4">
+      <div className="flex w-full lg:flex-row flex-col mx-auto items-end sm:space-x-4 sm:space-y-0 space-y-4">
         <div className="relative md:mb-4 flex-grow w-full">
           <input
             type="text"
