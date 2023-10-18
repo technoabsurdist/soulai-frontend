@@ -1,4 +1,4 @@
-export interface ITENS_NOTA {
+export interface NOTES {
   id: number;
   text: string;
 }

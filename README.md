@@ -7,7 +7,6 @@
 <!-- </p> -->
 <!---->
 
-# Soul AI 
 Explore the complex landscape of your mind through profound analysis of your thoughts and feelings. <br /> 
 Contribute any thought, dream, journey, or emotion to our AI-fueled journal, be it vague or elaborate. <br /> 
 Leveraging advanced NLP algorithms, we organize your thoughts and pinpoint behavioral patterns. <br /> 

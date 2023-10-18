@@ -1,22 +1,22 @@
 // src/store.js
 import { create } from "zustand";
-import { ITENS_NOTA, LIMITE_CARACTERES } from "./constants";
+import { NOTES, LIMITE_CARACTERES } from "./constants";
 
 interface StoreState {
-  notas: ITENS_NOTA[];
-  adcNota: (text: string) => void;
-  editarNota: (id: number, text: string) => void;
-  excluirNota: (id: number) => void;
+  notes: NOTES[];
+  addNote: (text: string) => void; 
+  editNote: (id: number, text: string) => void; 
+  deleteNote: (id: number) => void; 
 }
 
 export const useStore = create<StoreState>((set) => ({
-  notas: JSON.parse(localStorage.getItem("notas") || "[]") as ITENS_NOTA[],
+  notes: JSON.parse(localStorage.getItem("notes") || "[]") as NOTES[],
 
-  adcNota: (text) => {
+  addNote: (text) => {
     const texto = text.trim();
 
     if (texto === "") {
-      window.alert("Invalid input: Please enter a non-empty nota.");
+      window.alert("Invalid input: Please enter a non-empty note.");
       return;
     }
 
@@ -26,48 +26,49 @@ export const useStore = create<StoreState>((set) => ({
       );
       return;
     }
+
     set((state) => {
-      const novaNota = { id: Date.now(), text: texto };
-      const notasAtualizadas = [...state.notas, novaNota];
-      localStorage.setItem("notas", JSON.stringify(notasAtualizadas));
-      return { notas: notasAtualizadas };
+      const newNote = { id: Date.now(), text: texto };
+      const updatedNotes= [...state.notes, newNote];
+      localStorage.setItem("notes", JSON.stringify(updatedNotes));
+      return { notes: updatedNotes };
     });
   },
 
-  editarNota: (id, text) => {
+  editNote: (id, text) => {
     const texto = text.trim();
 
     if (texto === "") {
-      window.alert("Por favor adicione conteúdo na sua nota.");
+      window.alert("Please first add your new note")
       return;
     }
 
     if (texto.length > LIMITE_CARACTERES) {
       window.alert(
-        `Sua nota excedeu o limite de ${LIMITE_CARACTERES} caracteres.`
+        `Your note exceeds the ${LIMITE_CARACTERES} character limit`
       );
       return;
     }
 
     set((state) => {
-      const notasAtualizadas = state.notas.map((nota) =>
+      const notesAtualizadas = state.notes.map((nota) =>
         nota.id === id ? { ...nota, text: texto } : nota
       );
-      localStorage.setItem("notas", JSON.stringify(notasAtualizadas));
-      return { notas: notasAtualizadas };
+      localStorage.setItem("notes", JSON.stringify(notesAtualizadas));
+      return { notes: notesAtualizadas };
     });
   },
 
-  excluirNota: (id) => {
+  deleteNote: (id) => {
     const confirmacao = window.confirm(
-      "Tem certeza que deseja excluir essa nota?"
+      "Are you sure you want to delete this note?"
     );
 
     if (confirmacao) {
       set((state) => {
-        const notasAtualizadas = state.notas.filter((nota) => nota.id !== id);
-        localStorage.setItem("notas", JSON.stringify(notasAtualizadas));
-        return { notas: notasAtualizadas };
+        const notesAtualizadas = state.notes.filter((nota) => nota.id !== id);
+        localStorage.setItem("notes", JSON.stringify(notesAtualizadas));
+        return { notes: notesAtualizadas };
       });
     }
   },

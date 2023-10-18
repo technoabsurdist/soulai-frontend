@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import { useStore } from "./store";
 import Header from "./componentes/Header";
-import ListaDeNotas from "./componentes/ListaDeNotas";
+import NotesList from "./componentes/NotesList";
 import Footer from "./componentes/Footer";
 
 function App() {
-  const { notas, adcNota } = useStore();
+  const { notes, addNote } = useStore(); 
   const [novaNota, setNovaNota] = useState<string>("");
   const [numCaracteres, setNumCaracteres] = useState<number>(0);
 
   useEffect(() => {
-    const notasSalvas = JSON.parse(localStorage.getItem("notas") || "[]");
+    const notasSalvas = JSON.parse(localStorage.getItem("notes") || "[]");
     if (notasSalvas) {
-      useStore.setState({ notas: notasSalvas });
+      useStore.setState({ notes: notasSalvas });
     }
   }, []);
 
   const handleAdcNota = () => {
     if (novaNota.trim() !== "") {
-      adcNota(novaNota);
+      addNote(novaNota);
       setNovaNota("");
       setNumCaracteres(0);
     }
@@ -37,7 +37,7 @@ function App() {
         onNovaNotaChange={handleNovaNotaChange}
         onAdcNota={handleAdcNota}
       />
-      <ListaDeNotas notas={notas} />
+      <NotesList notas={notes} />
       <Footer />
     </div>
   );

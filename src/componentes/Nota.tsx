@@ -1,10 +1,10 @@
 // src/components/Nota.tsx
 import { useState } from "react";
 import { useStore } from "../store";
-import { ITENS_NOTA } from "../constants";
+import { NOTES } from "../constants";
 
-const Nota: React.FC<ITENS_NOTA> = ({ id, text }) => {
-  const { editarNota, excluirNota } = useStore();
+const Nota: React.FC<NOTES> = ({ id, text }) => {
+  const { editNote, deleteNote} = useStore();
   const [editando, setEditando] = useState(false);
   const [textoEditado, setTextoEditado] = useState(text);
 
@@ -13,7 +13,7 @@ const Nota: React.FC<ITENS_NOTA> = ({ id, text }) => {
   };
 
   const handleSalvar = () => {
-    editarNota(id, textoEditado);
+    editNote(id, textoEditado);
     setEditando(false);
   };
 
@@ -51,7 +51,7 @@ const Nota: React.FC<ITENS_NOTA> = ({ id, text }) => {
             </button>
             <button
               title="Excluir anotação"
-              onClick={() => excluirNota(id)}
+              onClick={() => deleteNote(id)}
               className="bg-zinc-900 lg:opacity-70 hover:opacity-100 text-white hover:text-red-500  text-[13px] font-bold py-1 px-3 mt-10 rounded transition duration-300 ease-in-out"
             >
               Excluir

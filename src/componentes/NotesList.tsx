@@ -1,12 +1,11 @@
-// src/components/Notes.tsx
-import { ITENS_NOTA } from "../constants";
+import { NOTES } from "../constants";
 import Nota from "./Nota";
 
 interface NotasProps {
-  notas: ITENS_NOTA[];
+  notas: NOTES[];
 }
 
-const ListaDeNotas: React.FC<NotasProps> = ({ notas }) => {
+const NotesList: React.FC<NotasProps> = ({ notas }) => {
   const lista = [...notas].reverse();
 
   return (
@@ -28,4 +27,4 @@ const ListaDeNotas: React.FC<NotasProps> = ({ notas }) => {
   );
 };
 
-export default ListaDeNotas;
+export default NotesList;

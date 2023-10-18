@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({
       <div className="flex flex-col text-center w-full mb-10 md:mb-20">
 
         <h1 className="mt-10 mb-4 text-4xl md:text-5xl lg:text-7xl font-black text-white">
-          Soul AI
+          Soul
         </h1>
         <h2 className="text-xs text-indigo-500 tracking-widest font-medium uppercase">
           Organize your thoughts and pinpoint behavioral patterns. <br /> 
