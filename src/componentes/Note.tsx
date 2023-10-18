@@ -1,38 +1,37 @@
-// src/components/Nota.tsx
 import { useState } from "react";
 import { useStore } from "../store";
 import { NOTES } from "../constants";
 
-const Nota: React.FC<NOTES> = ({ id, text }) => {
+const Note: React.FC<NOTES> = ({ id, text }) => {
   const { editNote, deleteNote} = useStore();
-  const [editando, setEditando] = useState(false);
-  const [textoEditado, setTextoEditado] = useState(text);
+  const [editing, setEditing] = useState(false)
+  const [editedText, setEditedText] = useState(text); 
 
-  const handleEditar = () => {
-    setEditando(true);
+  const handleEdit = () => {
+    setEditing(true);
   };
 
-  const handleSalvar = () => {
-    editNote(id, textoEditado);
-    setEditando(false);
+  const handleSave = () => {
+    editNote(id, editedText);
+    setEditing(false);
   };
 
   return (
     <div className="h-64 bg-zinc-700 bg-opacity-40 p-6 rounded-lg relative hover:ring-1 ring-indigo-500">
-      {editando ? (
+      {editing ? (
         <>
           <textarea
-            name="nota"
-            value={textoEditado}
-            onChange={(e) => setTextoEditado(e.target.value)}
+            name="note"
+            value={editedText}
+            onChange={(e) => setEditedText(e.target.value)}
             className="w-full h-full bg-zinc-800 text-xl text-indigo-400 leading-6 font-semibold underline underline-offset-4 overflow-hidden focus:outline-none"
           />
           <div className="absolute bottom-0 right-0 flex p-4">
             <button
-              onClick={handleSalvar}
+              onClick={handleSave}
               className="bg-indigo-500 hover:bg-indigo-600 text-white  text-[13px] font-bold py-1 px-3 mr-2  mt-10 rounded transition duration-300 ease-in-out"
             >
-              Salvar
+              Save
             </button>
           </div>
         </>
@@ -43,18 +42,18 @@ const Nota: React.FC<NOTES> = ({ id, text }) => {
           </p>
           <div className="absolute bottom-0 right-0 flex p-4">
             <button
-              title="Editar anotação"
-              onClick={handleEditar}
+              title="Edit"
+              onClick={handleEdit}
               className="bg-zinc-900 lg:opacity-70 hover:opacity-100 text-white hover:text-yellow-500  text-[13px] font-bold py-1 px-3 mr-2  mt-10 rounded transition duration-300 ease-in-out"
             >
-              Editar
+                Edit
             </button>
             <button
-              title="Excluir anotação"
+              title="Delete"
               onClick={() => deleteNote(id)}
               className="bg-zinc-900 lg:opacity-70 hover:opacity-100 text-white hover:text-red-500  text-[13px] font-bold py-1 px-3 mt-10 rounded transition duration-300 ease-in-out"
             >
-              Excluir
+                Delete
             </button>
           </div>
         </>
@@ -63,4 +62,4 @@ const Nota: React.FC<NOTES> = ({ id, text }) => {
   );
 };
 
-export default Nota;
+export default Note;

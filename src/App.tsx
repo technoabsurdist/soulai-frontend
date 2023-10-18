@@ -6,8 +6,8 @@ import Footer from "./componentes/Footer";
 
 function App() {
   const { notes, addNote } = useStore(); 
-  const [novaNota, setNovaNota] = useState<string>("");
-  const [numCaracteres, setNumCaracteres] = useState<number>(0);
+  const [newNote, setNewNote] = useState<string>("")
+  const [numChars, setNumChars] = useState<number>(0); 
 
   useEffect(() => {
     const notasSalvas = JSON.parse(localStorage.getItem("notes") || "[]");
@@ -17,27 +17,27 @@ function App() {
   }, []);
 
   const handleAdcNota = () => {
-    if (novaNota.trim() !== "") {
-      addNote(novaNota);
-      setNovaNota("");
-      setNumCaracteres(0);
+    if (newNote.trim() !== "") {
+      addNote(newNote);
+      setNewNote("");
+      setNumChars(0);
     }
   };
 
   const handleNovaNotaChange = (text: string) => {
-    setNovaNota(text);
-    setNumCaracteres(text.length);
+    setNewNote(text);
+    setNumChars(text.length);
   };
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header
-        novaNota={novaNota}
-        numCaracteres={numCaracteres}
-        onNovaNotaChange={handleNovaNotaChange}
-        onAdcNota={handleAdcNota}
+        newNote={newNote}
+        numChars={numChars}
+        onNewNoteChange={handleNovaNotaChange}
+        onAddNote={handleAdcNota}
       />
-      <NotesList notas={notes} />
+      <NotesList notes={notes} />
       <Footer />
     </div>
   );

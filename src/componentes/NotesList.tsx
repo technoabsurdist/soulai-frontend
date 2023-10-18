@@ -1,12 +1,12 @@
 import { NOTES } from "../constants";
-import Nota from "./Nota";
+import Note from "./Note";
 
-interface NotasProps {
-  notas: NOTES[];
+interface NotesProps {
+  notes: NOTES[];
 }
 
-const NotesList: React.FC<NotasProps> = ({ notas }) => {
-  const lista = [...notas].reverse();
+const NotesList: React.FC<NotesProps> = ({ notes }) => {
+  const lista = [...notes].reverse();
 
   return (
     <>
@@ -18,7 +18,7 @@ const NotesList: React.FC<NotasProps> = ({ notas }) => {
         <div className="container mx-auto flex flex-wrap items-start my-10 lg:my-20">
           {lista.map((nota) => (
             <div className="w-full md:w-1/2 xl:w-1/4 p-4" key={nota.id}>
-              <Nota id={nota.id} text={nota.text} />
+              <Note id={nota.id} text={nota.text} />
             </div>
           ))}
         </div>
