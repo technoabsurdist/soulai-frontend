@@ -11,6 +11,10 @@ function App() {
   const [numChars, setNumChars] = useState<number>(0); 
   const [loggedIn, setLoggedIn] = useState<boolean>(false); 
 
+  const handleUserLogin = () => {
+    setLoggedIn(true);
+}
+
   useEffect(() => {
     const notasSalvas = JSON.parse(localStorage.getItem("notes") || "[]");
     if (notasSalvas) {
@@ -45,7 +49,7 @@ function App() {
           <Footer />
         </>
       ) : (
-        <Login />
+        <Login handleUserLogin={handleUserLogin}/>
       )}
    </div>
   );

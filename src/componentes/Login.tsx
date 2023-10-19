@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-const Login = () => {
+interface LoginProps {
+    handleUserLogin: (email: string, password: string) => void;
+}
+
+const Login = ({ handleUserLogin }: LoginProps) => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState(""); 
 

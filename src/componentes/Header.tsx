@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({
           </button>
           <button
             onClick={setViewChat}
-            className="mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-[#2fa0d6] rounded text-base font-bold transition duration-300 ease-in-out"
+            className="mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-[#b9aee8] rounded text-base font-bold transition duration-300 ease-in-out"
           >
             Chat
           </button>
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({
         <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white drop-shadow-2xl">
           Soul
         </h1>
-        <h2 className="text-s text-[#2fa0d6] text-600 tracking-widest font-bold uppercase">
+        <h2 className="text-s text-[#b9aee8] text-600 tracking-widest font-bold uppercase">
           Organize your thoughts and pinpoint behavioral patterns; <br /> 
           Decode your subconscious and discover your inner realm. 
         </h2>
@@ -59,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({
             placeholder="What are you thinking..."
             value={newNote}
             onChange={(e) => onNewNoteChange(e.target.value)}
-            className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#2fa0d6] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
           />
         </div>
         <div className="flex lg:pb-4">
@@ -68,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({
           </p>
           <button
             onClick={onAddNote}
-            className="text-white bg-[#2fa0d6] border-0 py-2 px-6 focus:outline-none hover:bg-[#2fa0d6] rounded text-base font-bold transition duration-300 ease-in-out"
+            className="text-white bg-[#b9aee8] border-0 py-2 px-6 focus:outline-none hover:bg-[#2fa0d6] rounded text-base font-bold transition duration-300 ease-in-out"
           >
           Add 
           </button>
