@@ -4,13 +4,15 @@ import Header from "./componentes/Header";
 import NotesList from "./componentes/NotesList";
 import Footer from "./componentes/Footer";
 import Login from "./componentes/Login";
-
+import Chat from "./componentes/Chat";
+import { View } from "./constants";
 
 function App() {
   const { fetchNotes } = useStore(); 
   const [newNote, setNewNote] = useState<string>("")
   const [numChars, setNumChars] = useState<number>(0); 
   const [loggedIn, setLoggedIn] = useState<boolean>(false); 
+  const [view, setView] = useState<View>(View.NOTES); 
 
   const handleUserLogin = () => {
     setLoggedIn(true);
@@ -62,9 +64,11 @@ function App() {
             newNote={newNote}
             numChars={numChars}
             onNewNoteChange={handleNewNote}
+            handleViewNotes={() => setView(View.NOTES)}
+            handleViewChat={() => setView(View.CHAT)}
             onAddNote={handleAddNote}
           />
-          <NotesList />
+          {view ? (<NotesList />) : (<Chat />)}
 
           <Footer />
         </>

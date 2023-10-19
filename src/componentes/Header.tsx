@@ -4,40 +4,33 @@ import { LIMITE_CARACTERES } from "../constants";
 interface HeaderProps {
   newNote: string; 
   numChars: number; 
-  onNewNoteChange: (text: string) => void; 
+  onNewNoteChange: (text: string) => void;
+  handleViewNotes: () => void;
+  handleViewChat: () => void; 
   onAddNote: () => void; 
 }
-
 const Header: React.FC<HeaderProps> = ({
   newNote, 
   numChars,
   onNewNoteChange,
+  handleViewNotes,
+  handleViewChat,
   onAddNote,
 }) => {
-
-  const setViewNotes = () => {
-    // TODO: 
-    return; 
-  }
-
-  const setViewChat = () => {
-    // TODO: 
-    return; 
-  }
 
   return (
     <div className="container px-5 pt-24 mx-auto flex flex-wrap">
       <div className="flex flex-col text-center w-full mb-5 md:mb-20">
         <div>
           <button
-            onClick={setViewNotes}
-            className="mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-[#b9aee8] rounded text-base font-bold transition duration-300 ease-in-out"
+            onClick={handleViewNotes}
+            className="mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-[#b9aee8] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider"
           >
             Notes 
           </button>
           <button
-            onClick={setViewChat}
-            className="mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-[#b9aee8] rounded text-base font-bold transition duration-300 ease-in-out"
+            onClick={handleViewChat}
+            className="mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-[#b9aee8] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider"
           >
             Chat
           </button>
@@ -59,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({
             placeholder="What are you thinking..."
             value={newNote}
             onChange={(e) => onNewNoteChange(e.target.value)}
-            className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#b9aee8] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#b9aee8] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
           />
         </div>
         <div className="flex lg:pb-4">
@@ -68,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({
           </p>
           <button
             onClick={onAddNote}
-            className="text-white bg-[#b9aee8] border-0 py-2 px-6 focus:outline-none hover:bg-[#2fa0d6] rounded text-base font-bold transition duration-300 ease-in-out"
+            className="text-white bg-[#b9aee8] border-0 py-2 px-6 focus:outline-none hover:bg-[#2fa0d6] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider"
           >
           Add 
           </button>

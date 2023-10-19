@@ -70,7 +70,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
           <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white tracking-wider">
           Soul
           </h1>
-          <h3 className="leading-8 mt-2 text-l text-[#b9aee8] text-700 tracking-widest font-medium">
+          <h3 className="leading-7 mt-2 text-l text-[#b9aee8] text-700 tracking-widest">
               Explore the <big>complex</big> landscape of your mind through profound analysis of your thoughts and feelings. <br /> 
               Contribute any thought, dream, journey, or emotion to our <big>AI-fueled journal</big>, be it vague or elaborate. <br /> 
               Leveraging advanced NLP algorithms, we organize your thoughts and pinpoint <big>behavioral patterns</big>. <br /> 
