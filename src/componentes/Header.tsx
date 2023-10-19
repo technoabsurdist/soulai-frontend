@@ -1,7 +1,8 @@
 // src/components/Header.tsx
-import { LIMITE_CARACTERES } from "../constants";
+import { LIMITE_CARACTERES, View } from "../constants";
 
 interface HeaderProps {
+  view: View
   newNote: string; 
   numChars: number; 
   onNewNoteChange: (text: string) => void;
@@ -10,6 +11,7 @@ interface HeaderProps {
   onAddNote: () => void; 
 }
 const Header: React.FC<HeaderProps> = ({
+  view,
   newNote, 
   numChars,
   onNewNoteChange,
@@ -22,18 +24,18 @@ const Header: React.FC<HeaderProps> = ({
     <div className="container px-5 pt-24 mx-auto flex flex-wrap">
       <div className="flex flex-col text-center w-full mb-5 md:mb-20">
         <div>
-          <button
-            onClick={handleViewNotes}
-            className="mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-[#b9aee8] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider"
-          >
-            Notes 
-          </button>
-          <button
-            onClick={handleViewChat}
-            className="mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-[#b9aee8] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider"
-          >
-            Chat
-          </button>
+        <button
+          onClick={handleViewNotes}
+          className={`mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none rounded text-base font-bold transition duration-300 ease-in-out tracking-wider ${view === View.NOTES ? "bg-[#b9aee8]" : ""}`}
+        >
+          Notes 
+        </button>
+        <button
+          onClick={handleViewChat}
+          className={`mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none rounded text-base font-bold transition duration-300 ease-in-out tracking-wider ${view === View.CHAT ? "bg-[#b9aee8]" : ""}`}
+        >
+          Chat
+        </button>
         </div>
         <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white drop-shadow-2xl">
           Soul

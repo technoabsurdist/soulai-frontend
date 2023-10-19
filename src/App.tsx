@@ -60,9 +60,10 @@ function App() {
     <div className="flex flex-col min-h-screen mx-10">
       {loggedIn ? (
         <>
-          {view ? (
+          {view === View.NOTES ? (
             <>
               <Header
+                view={view}
                 newNote={newNote}
                 numChars={numChars}
                 onNewNoteChange={handleNewNote}
@@ -74,7 +75,11 @@ function App() {
             </>
           
           ) : (
-            <Chat />
+            <Chat 
+              view={view}
+              handleViewNotes={() => setView(View.NOTES)}
+              handleViewChat={() => setView(View.CHAT)}
+            />
           )}
 
           <Footer />
