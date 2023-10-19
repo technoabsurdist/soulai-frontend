@@ -17,11 +17,24 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <div className="container px-5 pt-24 mx-auto flex flex-wrap">
       <div className="flex flex-col text-center w-full mb-10 md:mb-20">
-
-        <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white">
+        <div>
+          <button
+            onClick={onAddNote}
+            className="m-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 rounded text-base font-bold transition duration-300 ease-in-out"
+          >
+            Notes 
+          </button>
+          <button
+            onClick={onAddNote}
+            className="m-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-indigo-700 rounded text-base font-bold transition duration-300 ease-in-out"
+          >
+            Chat
+          </button>
+        </div>
+        <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white drop-shadow-2xl">
           Soul
         </h1>
-        <h2 className="text-s text-indigo-500 tracking-widest font-medium uppercase">
+        <h2 className="text-s text-indigo-500 tracking-widest font-medium uppercase drop-shadow-xl">
           Organize your thoughts and pinpoint behavioral patterns; <br /> 
           Decode your subconscious and discover your inner realm. 
         </h2>

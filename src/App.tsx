@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen mx-10">
       <Header
         newNote={newNote}
         numChars={numChars}
