@@ -8,6 +8,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState(""); 
 
+    // ==> log in
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
@@ -26,6 +27,40 @@ const Login = ({ handleUserLogin }: LoginProps) => {
             }
         } catch (error) {
             console.error('Error logging in:', error);
+        }
+    }
+
+    // ==> sign up 
+    const handleSignup = async (e: React.FormEvent) => {
+        e.preventDefault();
+        try {
+            const signupResponse = await fetch('http://localhost:5001/signup', {
+                credentials: 'include',
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
+            });
+
+            if (signupResponse.ok) {
+                // Automatically log the user in after a successful signup
+                const loginResponse = await fetch('http://localhost:5001/login', {
+                    credentials: 'include',
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                if (loginResponse.ok) {
+                    console.log('Signup and login success');
+                    handleUserLogin(email, password);
+                } else {
+                    console.error('Login error after signup');
+                }
+            } else {
+                console.error('Signup error');
+            }
+        } catch (error) {
+            console.error('Error:', error);
         }
     }
 
@@ -68,11 +103,9 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                 >
                     Log In 
                 </button>
-                {/* sign up disabled for now */}
                 <button
-                    disabled
-                    onClick={() => {}}
-                    className="ml-2 text-white bg-[#313131] border-0 py-2 px-3 focus:outline-none rounded text-base font-medium transition duration-300 ease-in-out w-[47%] tracking-wider"
+                    onClick={handleSignup}
+                    className="ml-2 text-white bg-[#313131] border-0 py-2 px-3 focus:outline-none hover:bg-[#212121] rounded text-base font-medium transition duration-300 ease-in-out w-[47%] tracking-wider"
                 >
                     Sign Up 
                 </button>
