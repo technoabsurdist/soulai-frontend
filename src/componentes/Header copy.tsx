@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({
         <div>
           <button
             onClick={setViewNotes}
-            className="mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-[#b9aee8] rounded text-base font-bold transition duration-300 ease-in-out"
+            className="mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none hover:bg-[#2fa0d6] rounded text-base font-bold transition duration-300 ease-in-out"
           >
             Notes 
           </button>

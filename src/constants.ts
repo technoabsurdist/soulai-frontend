@@ -3,4 +3,4 @@ export interface NOTES {
   text: string;
 }
 
-export const LIMITE_CARACTERES: number = 200;
+export const LIMITE_CARACTERES: number = 300;
