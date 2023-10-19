@@ -31,7 +31,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
 
     return (
       <div className="container px-5 pt-24 mx-auto flex flex-wrap">
-        <div className="flex flex-col text-center w-full mb-8 md:mb-18">
+        <div className="flex flex-col text-center w-full mb-12 md:mb-19">
           <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white tracking-wider">
             Soul
           </h1>

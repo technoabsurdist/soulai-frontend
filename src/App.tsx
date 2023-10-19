@@ -30,10 +30,23 @@ function App() {
     }
   };
 
-  const handleNovaNotaChange = (text: string) => {
+  const handleNewNote = async (text: string) => {
     setNewNote(text);
     setNumChars(text.length);
+    try {
+      const title = 'Testing Title 1';
+      const response = await fetch('http://localhost:5001/entry', {
+        credentials: 'include',
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: title, text: text }),
+      });
+      return response; 
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
+
 
   return (
     <div className="flex flex-col min-h-screen mx-10">
@@ -42,7 +55,7 @@ function App() {
           <Header
             newNote={newNote}
             numChars={numChars}
-            onNewNoteChange={handleNovaNotaChange}
+            onNewNoteChange={handleNewNote}
             onAddNote={handleAdcNota}
           />
           <NotesList notes={notes} />

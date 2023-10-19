@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({
 
   return (
     <div className="container px-5 pt-24 mx-auto flex flex-wrap">
-      <div className="flex flex-col text-center w-full mb-10 md:mb-20">
+      <div className="flex flex-col text-center w-full mb-5 md:mb-20">
         <div>
           <button
             onClick={setViewNotes}
@@ -59,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({
             placeholder="What are you thinking..."
             value={newNote}
             onChange={(e) => onNewNoteChange(e.target.value)}
-            className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#b9aee8] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
           />
         </div>
         <div className="flex lg:pb-4">
