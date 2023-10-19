@@ -28,13 +28,13 @@ const Header: React.FC<HeaderProps> = ({
           onClick={handleViewNotes}
           className={`mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none rounded text-base font-bold transition duration-300 ease-in-out tracking-wider ${view === View.NOTES ? "bg-[#b9aee8]" : ""}`}
         >
-          Notes 
+           📝 Notes 
         </button>
         <button
           onClick={handleViewChat}
           className={`mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none rounded text-base font-bold transition duration-300 ease-in-out tracking-wider ${view === View.CHAT ? "bg-[#b9aee8]" : ""}`}
         >
-          Chat
+          💬 Chat
         </button>
         </div>
         <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white drop-shadow-2xl">
@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({
           </p>
           <button
             onClick={onAddNote}
-            className="text-white bg-[#b9aee8] border-0 py-2 px-6 focus:outline-none hover:bg-[#2fa0d6] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider"
+            className="text-white bg-[#b9aee8] border-0 py-2 px-6 focus:outline-none hover:bg-[#b9aee8] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider"
           >
           Add 
           </button>

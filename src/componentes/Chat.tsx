@@ -62,13 +62,13 @@ const Chat = ({ view, handleViewNotes, handleViewChat}: ChatProps) => {
                         onClick={handleViewNotes}
                         className={`mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none rounded text-base font-bold transition duration-300 ease-in-out tracking-wider ${view === View.NOTES ? "bg-[#212121]" : ""}`}
                     >
-                        Notes 
+                        📝 Notes 
                     </button>
                     <button
                         onClick={handleViewChat}
                         className={`mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none rounded text-base font-bold transition duration-300 ease-in-out tracking-wider ${view === View.CHAT ? "bg-[#b9aee8]" : ""}`}
                     >
-                        Chat
+                        💬 Chat
                     </button>
                 </div>
                 <p className="mt-10 text-s text-[#b9aee8] text-600 tracking-widest font-bold uppercase">
