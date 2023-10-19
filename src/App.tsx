@@ -5,15 +5,20 @@ import NotesList from "./componentes/NotesList";
 import Footer from "./componentes/Footer";
 import Login from "./componentes/Login";
 
+
 function App() {
-  const { notes, addNote } = useStore(); 
+  const { fetchNotes } = useStore(); 
   const [newNote, setNewNote] = useState<string>("")
   const [numChars, setNumChars] = useState<number>(0); 
   const [loggedIn, setLoggedIn] = useState<boolean>(false); 
 
   const handleUserLogin = () => {
     setLoggedIn(true);
-}
+  }
+
+  useEffect(() => {
+    fetchNotes();
+  }, [fetchNotes]);
 
   useEffect(() => {
     const notasSalvas = JSON.parse(localStorage.getItem("notes") || "[]");
@@ -22,29 +27,30 @@ function App() {
     }
   }, []);
 
-  const handleAdcNota = () => {
+  const handleAddNote = async () => {
     if (newNote.trim() !== "") {
-      addNote(newNote);
-      setNewNote("");
-      setNumChars(0);
+      try {
+        const title = 'Testing Title 1';
+        const response = await fetch('http://localhost:5001/entry', {
+          credentials: 'include',
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title: title, text: newNote.trim() }),
+        });
+        if (response.ok) {
+          setNewNote("");
+          setNumChars(0);
+          fetchNotes(); 
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
     }
   };
 
-  const handleNewNote = async (text: string) => {
+  const handleNewNote = (text: string) => {
     setNewNote(text);
     setNumChars(text.length);
-    try {
-      const title = 'Testing Title 1';
-      const response = await fetch('http://localhost:5001/entry', {
-        credentials: 'include',
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: title, text: text }),
-      });
-      return response; 
-    } catch (error) {
-      console.error('Error:', error);
-    }
   };
 
 
@@ -56,15 +62,16 @@ function App() {
             newNote={newNote}
             numChars={numChars}
             onNewNoteChange={handleNewNote}
-            onAddNote={handleAdcNota}
+            onAddNote={handleAddNote}
           />
-          <NotesList notes={notes} />
+          <NotesList />
+
           <Footer />
         </>
       ) : (
-        <Login handleUserLogin={handleUserLogin}/>
+        <Login handleUserLogin={handleUserLogin} />
       )}
-   </div>
+    </div>
   );
 }
 

@@ -3,8 +3,8 @@ import { useStore } from "../store";
 import { NOTES } from "../constants";
 
 const Note: React.FC<NOTES> = ({ id, text }) => {
-  const { editNote, deleteNote} = useStore();
-  const [editing, setEditing] = useState(false)
+  const { deleteNote, editNote } = useStore();
+  const [editing, setEditing] = useState(false);
   const [editedText, setEditedText] = useState(text); 
 
   const handleEdit = () => {
@@ -17,19 +17,19 @@ const Note: React.FC<NOTES> = ({ id, text }) => {
   };
 
   return (
-    <div className="h-64 bg-zinc-700 bg-opacity-40 p-6 rounded-lg relative hover:ring-1 ring-[#2fa0d6]">
+    <div className="h-64 bg-zinc-700 bg-opacity-40 p-6 rounded-lg relative hover:ring-1 ring-[#b9aee8]">
       {editing ? (
         <>
           <textarea
             name="note"
             value={editedText}
             onChange={(e) => setEditedText(e.target.value)}
-            className="w-full h-full bg-zinc-800 text-[0.9rem] text-[#2fa0d6] leading-5 font-semibold underline underline-offset-4 overflow-hidden focus:outline-none"
+            className="w-full h-full bg-zinc-800 text-[0.9rem] text-[#b9aee8] leading-5 font-semibold underline underline-offset-4 overflow-hidden focus:outline-none"
           />
           <div className="absolute bottom-0 right-0 flex p-4">
             <button
               onClick={handleSave}
-              className="bg-[#2fa0d6] hover:bg-indigo-600 text-white  text-[13px] font-bold py-1 px-3 mr-2  mt-10 rounded transition duration-300 ease-in-out"
+              className="bg-[#b9aee8] hover:bg-indigo-600 text-white  text-[13px] font-bold py-1 px-3 mr-2  mt-10 rounded transition duration-300 ease-in-out"
             >
               Save
             </button>
@@ -46,14 +46,14 @@ const Note: React.FC<NOTES> = ({ id, text }) => {
               onClick={handleEdit}
               className="bg-zinc-900 lg:opacity-70 hover:opacity-100 text-white hover:text-yellow-500  text-[13px] font-bold py-1 px-3 mr-2  mt-10 rounded transition duration-300 ease-in-out"
             >
-                Edit
+              Edit
             </button>
             <button
               title="Delete"
               onClick={() => deleteNote(id)}
               className="bg-zinc-900 lg:opacity-70 hover:opacity-100 text-white hover:text-red-500  text-[13px] font-bold py-1 px-3 mt-10 rounded transition duration-300 ease-in-out"
             >
-                Delete
+              Delete
             </button>
           </div>
         </>
