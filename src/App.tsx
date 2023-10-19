@@ -60,15 +60,22 @@ function App() {
     <div className="flex flex-col min-h-screen mx-10">
       {loggedIn ? (
         <>
-          <Header
-            newNote={newNote}
-            numChars={numChars}
-            onNewNoteChange={handleNewNote}
-            handleViewNotes={() => setView(View.NOTES)}
-            handleViewChat={() => setView(View.CHAT)}
-            onAddNote={handleAddNote}
-          />
-          {view ? (<NotesList />) : (<Chat />)}
+          {view ? (
+            <>
+              <Header
+                newNote={newNote}
+                numChars={numChars}
+                onNewNoteChange={handleNewNote}
+                handleViewNotes={() => setView(View.NOTES)}
+                handleViewChat={() => setView(View.CHAT)}
+                onAddNote={handleAddNote}
+              />
+              <NotesList />
+            </>
+          
+          ) : (
+            <Chat />
+          )}
 
           <Footer />
         </>
