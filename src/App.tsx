@@ -11,12 +11,14 @@ function App() {
   const { fetchNotes } = useStore(); 
   const [newNote, setNewNote] = useState<string>("")
   const [numChars, setNumChars] = useState<number>(0); 
-  const [loggedIn, setLoggedIn] = useState<boolean>(false); 
+  const [loggedIn, setLoggedIn] = useState<boolean>(true); // Change before deploy!!! 
   const [view, setView] = useState<View>(View.NOTES); 
   const [userId, setUserId] = useState<string>(localStorage.getItem("userId") || "");
+  const [email, setEmail] = useState<string>(localStorage.getItem("email") || "")
 
   useEffect(() => {
     setUserId(localStorage.getItem("userId") || "")
+    setEmail(localStorage.getItem("email") || "")
     if (userId) {
       setLoggedIn(true)
     }
@@ -62,6 +64,10 @@ function App() {
     setNumChars(text.length);
   };
 
+  const handleLogOut = () => {
+    localStorage.removeItem("userId")
+    setLoggedIn(false); 
+  }
 
   return (
     <div className="flex flex-col min-h-screen mx-10">
@@ -69,6 +75,18 @@ function App() {
         <>
           {view === View.NOTES ? (
             <>
+              <div className="container mx-auto lg:w-full p-5 text-justify text-sm text-zinc-500 flex justify-between">
+                <div>
+                <a className="tracking-wide font-bold">{email.split("@")[0].toUpperCase() || "UNKNOWN"}</a> <br /> 
+                <a>{email || "unkown@unknown.com"}</a>
+                </div>
+                <button 
+                  className={`px-3 text-[#515151] hover:bg-[#414141] border-0 py-2 focus:outline-none rounded text-base transition duration-300 ease-in-out tracking-wider underline`}
+                  onClick={handleLogOut}
+                >
+                  Log out
+                </button>
+              </div>
               <Header
                 view={view}
                 newNote={newNote}
@@ -92,7 +110,7 @@ function App() {
           <Footer />
         </>
       ) : (
-        <Login handleUserLogin={handleUserLogin} />
+        <Login handleUserLogin={handleUserLogin}/>
       )}
     </div>
   );

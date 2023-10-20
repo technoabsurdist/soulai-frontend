@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 interface LoginProps {
-    handleUserLogin: (id: string) => void;
+    handleUserLogin: () => void;
 }
 
 const Login = ({ handleUserLogin }: LoginProps) => {
@@ -23,7 +23,8 @@ const Login = ({ handleUserLogin }: LoginProps) => {
             if(response.ok) {
                 console.log('login success');
                 localStorage.setItem('userId', data.userId);
-                handleUserLogin(data.userId);
+                localStorage.setItem('email', data.email)
+                handleUserLogin();
             } else {
                 console.error('Login error:', data.message || 'Unknown error');
             }
@@ -57,7 +58,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                     console.log('Signup and login success');
                     console.log('login success');
                     localStorage.setItem('userId', data.userId);
-                    handleUserLogin(data.userId);
+                    handleUserLogin();
                 } else {
                     console.error('Login error after signup');
                 }
