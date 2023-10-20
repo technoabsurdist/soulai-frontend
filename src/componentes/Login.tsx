@@ -1,14 +1,13 @@
 import { useState } from "react";
 
 interface LoginProps {
-    handleUserLogin: (email: string, password: string) => void;
+    handleUserLogin: (id: string) => void;
 }
 
 const Login = ({ handleUserLogin }: LoginProps) => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState(""); 
 
-    // ==> log in
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
@@ -18,19 +17,22 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
             });
-            
+    
+            const data = await response.json();
+    
             if(response.ok) {
-                console.log('login success')
-                handleUserLogin(email, password)
+                console.log('login success');
+                localStorage.setItem('userId', data.userId);
+                handleUserLogin(data.userId);
             } else {
-                console.error('error')
+                console.error('Login error:', data.message || 'Unknown error');
             }
         } catch (error) {
             console.error('Error logging in:', error);
         }
     }
+    
 
-    // ==> sign up 
     const handleSignup = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
@@ -49,10 +51,13 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password }),
                 });
-
+                
+                const data = await loginResponse.json();
                 if (loginResponse.ok) {
                     console.log('Signup and login success');
-                    handleUserLogin(email, password);
+                    console.log('login success');
+                    localStorage.setItem('userId', data.userId);
+                    handleUserLogin(data.userId);
                 } else {
                     console.error('Login error after signup');
                 }
