@@ -11,7 +11,7 @@ function App() {
   const { fetchNotes } = useStore(); 
   const [newNote, setNewNote] = useState<string>("")
   const [numChars, setNumChars] = useState<number>(0); 
-  const [loggedIn, setLoggedIn] = useState<boolean>(false); 
+  const [loggedIn, setLoggedIn] = useState<boolean>(true); 
   const [view, setView] = useState<View>(View.NOTES); 
   const [userId, setUserId] = useState<string>(localStorage.getItem("userId") || "");
   const [email, setEmail] = useState<string>(localStorage.getItem("email") || "")
@@ -78,17 +78,24 @@ function App() {
     <div className="flex flex-col min-h-screen mx-10">
       <div className="container mx-auto lg:w-full p-5 text-justify text-sm text-zinc-500 flex justify-between">
         {loggedIn ?
-          (<div>
-            <a className="tracking-wide font-bold">{email.split("@")[0].toUpperCase()}</a> <br /> 
-            <a>{email}</a>
+          (
+            <>
+            <div>
+              <a className="tracking-wide font-bold">{email.split("@")[0].toUpperCase()}</a> <br /> 
+              <a>{email}</a>
+            </div>
+            <button 
+              className={`px-3 text-[#515151] hover:bg-[#414141] border-0 py-2 focus:outline-none rounded text-base transition duration-300 ease-in-out tracking-wider underline`}
+              onClick={handleLogOut}
+            >
+              Log out
+            </button>
+          </>
+        ) : (
+          <div> 
+
           </div>
-        ) : (<div> </div>)}
-        <button 
-          className={`px-3 text-[#515151] hover:bg-[#414141] border-0 py-2 focus:outline-none rounded text-base transition duration-300 ease-in-out tracking-wider underline`}
-          onClick={handleLogOut}
-        >
-          Log out
-        </button>
+        )}
       </div>
       {loggedIn ? (
         <>
