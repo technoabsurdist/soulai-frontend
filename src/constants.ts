@@ -13,4 +13,9 @@ export enum View {
   CHAT,
 }
 
+export enum ViewAccess {
+  LOGIN,
+  SIGNUP,
+}
+
 export const LIMITE_CARACTERES: number = 300;

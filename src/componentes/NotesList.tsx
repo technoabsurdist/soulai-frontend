@@ -8,7 +8,7 @@ const NotesList = () => {
   return (
     <>
       {listNotes.length === 0 ? (
-        <p className="text-center font-bold text-2xl text-zinc-300 mt-20 lg:mt-32 px-7">
+        <p className="text-center font-bold text-2xl text-zinc-300 mt-20 lg:mt-32 px-7 tracking-wider">
           Time to write your first note!
         </p>
       ) : (

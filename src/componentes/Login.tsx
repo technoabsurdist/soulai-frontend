@@ -1,19 +1,16 @@
 import { useState } from "react";
+import { ViewAccess } from "../constants";
 
 interface LoginProps {
     handleUserLogin: () => void;
 }
 
-enum View {
-    LOGIN,
-    SIGNUP,
-}
 
 const Login = ({ handleUserLogin }: LoginProps) => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState(""); 
     const [name, setName] = useState("")
-    const [view, setView] = useState<View>(View.LOGIN); 
+    const [view, setView] = useState<ViewAccess>(ViewAccess.LOGIN); 
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -29,6 +26,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
     
             if(response.ok) {
                 console.log('login success');
+                localStorage.removeItem('userId');
                 localStorage.setItem('userId', data.userId);
                 localStorage.setItem('email', data.email)
                 handleUserLogin();
@@ -61,6 +59,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                 
                 const data = await loginResponse.json()
                 if (loginResponse.ok) {
+                    localStorage.removeItem('userId');
                     localStorage.setItem('userId', data.userId)
                     localStorage.setItem('email', email)
                     localStorage.setItem('name', name)
@@ -92,7 +91,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
   
         <div className="flex w-full justify-center lg:flex-row flex-col mx-auto items-end sm:space-x-4 sm:space-y-0 space-y-4">
           <div className="relative md:mb-4" style={{ width: '300px' }}> 
-              {view === View.LOGIN ? (
+              {view === ViewAccess.LOGIN ? (
             
                 <>
                     <input
@@ -121,7 +120,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
         
                     </div>
                         <button
-                            onClick={() => setView(View.SIGNUP)}
+                            onClick={() => setView(ViewAccess.SIGNUP)}
                             className="mr-2 mt-1 text-[#717171] underline transition duration-300 ease-in-out w-[95.5%] tracking-wider"
                         >
                             Sign Up?
@@ -163,7 +162,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
         
                     </div>
                     <button
-                        onClick={() => setView(View.LOGIN)}
+                        onClick={() => setView(ViewAccess.LOGIN)}
                         className="mr-2 mt-1 text-[#717171] text-[11px] underline transition duration-300 ease-in-out w-[95.5%] tracking-wider"
                     >
                         Already have an account? 

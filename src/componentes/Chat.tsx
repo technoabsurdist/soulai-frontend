@@ -37,7 +37,6 @@ const Chat = ({ view, handleViewNotes, handleViewChat}: ChatProps) => {
     
         setChatHistory(lastFiveMessages);
     
-        // Fetch model response and update state (limited to last 5 messages)
         const userId = localStorage.getItem('userId');
         const response = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/chat', {
           credentials: 'include',
@@ -94,6 +93,7 @@ const Chat = ({ view, handleViewNotes, handleViewChat}: ChatProps) => {
                 <div className="relative flex-grow w-full">
                     <input 
                         type="text" 
+                        placeholder="Send a message to Soul"
                         className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus:ring-2 focus:ring-[#b9aee8] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider" 
                         value={userInput} 
                         onChange={handleInputChange} 
