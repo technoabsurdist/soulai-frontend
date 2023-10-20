@@ -15,6 +15,7 @@ function App() {
   const [view, setView] = useState<View>(View.NOTES); 
   const [userId, setUserId] = useState<string>(localStorage.getItem("userId") || "");
   const [email, setEmail] = useState<string>(localStorage.getItem("email") || "")
+  const [name, setName] = useState<string>(localStorage.getItem('name') || "")
 
   useEffect(() => {
     setUserId(localStorage.getItem("userId") || "")
@@ -25,7 +26,8 @@ function App() {
 
   useEffect(() => {
     setEmail(localStorage.getItem("email") || "")
-  }, [setEmail])
+    setName(localStorage.getItem('name') || "")
+  }, [setEmail, setName])
 
   const handleUserLogin = () => {
     setLoggedIn(true);
@@ -81,7 +83,7 @@ function App() {
           (
             <>
             <div>
-              <a className="tracking-wide font-bold">{email.split("@")[0].toUpperCase()}</a> <br /> 
+              <a className="tracking-wide font-bold">{name || email.split("@")[0].toUpperCase()}</a> <br /> 
               <a>{email}</a>
             </div>
             <button 
