@@ -25,8 +25,8 @@ const Login = ({ handleUserLogin }: LoginProps) => {
             const data = await response.json();
     
             if(response.ok) {
-                console.log('login success');
                 localStorage.removeItem('userId');
+                localStorage.removeItem('email')
                 localStorage.setItem('userId', data.userId);
                 localStorage.setItem('email', data.email)
                 handleUserLogin();
@@ -59,7 +59,10 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                 
                 const data = await loginResponse.json()
                 if (loginResponse.ok) {
+                    // god this is disgusting codeeeeeeeeeeeeeeee
                     localStorage.removeItem('userId');
+                    localStorage.removeItem('email')
+                    localStorage.removeItem('name')
                     localStorage.setItem('userId', data.userId)
                     localStorage.setItem('email', email)
                     localStorage.setItem('name', name)
