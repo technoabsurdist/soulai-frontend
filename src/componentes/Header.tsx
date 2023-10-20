@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({
         <div>
         <button
           onClick={handleViewNotes}
-          className={`mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none rounded text-base font-bold transition duration-300 ease-in-out tracking-wider ${view === View.NOTES ? "bg-[#b9aee8]" : ""}`}
+          className={`mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none rounded text-base font-bold transition duration-300 ease-in-out tracking-wider ${view === View.NOTES ? "bg-[#b9aee8] shadow-md shadow-indigo-500/50" : ""}`}
         >
            📝 Notes 
         </button>
@@ -37,10 +37,10 @@ const Header: React.FC<HeaderProps> = ({
           💬 Chat
         </button>
         </div>
-        <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white drop-shadow-2xl">
+        <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white drop-shadow-2xl tracking-wider [text-shadow:1px_1px_1px_var(--tw-shadow-color)] shadow-indigo-500">
           Soul
         </h1>
-        <h2 className="text-s text-[#b9aee8] text-600 tracking-widest font-bold uppercase">
+        <h2 className="text-s text-[#b9aee8] text-600 tracking-widest font-bold uppercase tracking-widest [text-shadow:1px_1px_1px_var(--tw-shadow-color)] shadow-indigo-500">
           Organize your thoughts and pinpoint behavioral patterns; <br /> 
           Decode your subconscious and discover your inner realm. 
         </h2>
@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({
             placeholder="What are you thinking..."
             value={newNote}
             onChange={(e) => onNewNoteChange(e.target.value)}
-            className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#b9aee8] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
+            className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#b9aee8] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider shadow-md shadow-indigo-500/50"
           />
         </div>
         <div className="flex lg:pb-4">
@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({
           </p>
           <button
             onClick={onAddNote}
-            className="text-white bg-[#b9aee8] border-0 py-2 px-6 focus:outline-none hover:bg-[#b9aee8] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider"
+            className="text-white bg-[#b9aee8] border-0 py-2 px-6 focus:outline-none hover:bg-[#b9aee8] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider shadow-md shadow-indigo-500/50"
           >
           Add 
           </button>

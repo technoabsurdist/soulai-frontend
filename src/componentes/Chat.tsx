@@ -67,12 +67,12 @@ const Chat = ({ view, handleViewNotes, handleViewChat}: ChatProps) => {
                     </button>
                     <button
                         onClick={handleViewChat}
-                        className={`mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none rounded text-base font-bold transition duration-300 ease-in-out tracking-wider ${view === View.CHAT ? "bg-[#b9aee8]" : ""}`}
+                        className={`mx-2 text-white bg-[#313131] border-0 py-2 px-6 focus:outline-none rounded text-base font-bold transition duration-300 ease-in-out tracking-wider ${view === View.CHAT ? "bg-[#b9aee8] shadow-md shadow-indigo-500/50" : ""}`}
                     >
                         💬 Chat
                     </button>
                 </div>
-                <p className="mt-10 text-s text-[#b9aee8] text-600 tracking-widest font-bold uppercase">
+                <p className="mt-10 text-s text-[#b9aee8] text-600 tracking-widest font-bold uppercase tracking-widest [text-shadow:1px_1px_1px_var(--tw-shadow-color)] shadow-indigo-500">
                     Chat with your own personal AI-based psychological assistant named Soul. <br /> 
                     Soul has access to your past entries and can help you reflect on your past experiences and emotions.
                 </p>
@@ -94,13 +94,13 @@ const Chat = ({ view, handleViewNotes, handleViewChat}: ChatProps) => {
                     <input 
                         type="text" 
                         placeholder="Send a message to Soul"
-                        className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus:ring-2 focus:ring-[#b9aee8] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider" 
+                        className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus:ring-2 focus:ring-[#b9aee8] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider shadow-md shadow-indigo-500/50" 
                         value={userInput} 
                         onChange={handleInputChange} 
                     />
                 </div>
                 <button 
-                    className="text-white bg-[#b9aee8] border-0 py-2 px-6 focus:outline-none hover:bg-[#2fa0d6] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider"
+                    className="text-white bg-[#b9aee8] border-0 py-2 px-6 focus:outline-none hover:bg-[#2fa0d6] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider shadow-lg shadow-indigo-500/50"
                     onClick={handleSubmit}
                 >
                     Send

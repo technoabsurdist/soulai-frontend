@@ -79,9 +79,9 @@ const Login = ({ handleUserLogin }: LoginProps) => {
       <div className="container px-5 pt-24 mx-auto flex flex-wrap">
         <div className="flex flex-col text-center w-full mb-12 md:mb-19">
           <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white tracking-wider">
-          Soul
+          <span className="[text-shadow:3px_2px_2px_var(--tw-shadow-color)] shadow-indigo-500">Soul</span>
           </h1>
-          <h3 className="leading-7 mt-2 text-l text-[#b9aee8] text-700 tracking-widest">
+          <h3 className="leading-7 mt-2 text-l text-[#b9aee8] text-700 tracking-widest [text-shadow:1px_1px_1px_var(--tw-shadow-color)] shadow-indigo-500">
               Explore the <big>complex</big> landscape of your mind through profound analysis of your thoughts and feelings. <br /> 
               Contribute any thought, dream, journey, or emotion to our <big>AI-fueled journal</big>, be it vague or elaborate. <br /> 
               Leveraging advanced NLP algorithms, we organize your thoughts and pinpoint <big>behavioral patterns</big>. <br /> 
@@ -100,7 +100,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                         placeholder="Email"
                         value={email}
                         onChange={e => setEmail(e.target.value)} 
-                        className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
+                        className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider shadow-md shadow-indigo-500/50"
                     />
                     <input
                         type="password"
@@ -108,12 +108,12 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                         placeholder="Password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
-                        className="mt-3 w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
+                        className="mt-3 w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider shadow-md shadow-indigo-500/50"
                     />
                     <div className="flex w-full justify-center mt-5">
                         <button
                             onClick={handleLogin}
-                            className="mr-2 text-white bg-[#313131] border-0 py-2 px-1 focus:outline-none hover:bg-[#212121] rounded text-base font-medium transition duration-300 ease-in-out w-[47%] tracking-wider"
+                            className="mr-2 text-white bg-[#313131] border-0 py-2 px-1 focus:outline-none hover:bg-[#212121] rounded text-base font-medium transition duration-300 ease-in-out w-[47%] tracking-wider shadow-md shadow-grey-500/50"
                         >
                             Log In 
                         </button>
