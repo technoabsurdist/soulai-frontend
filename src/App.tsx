@@ -87,7 +87,7 @@ function App() {
               <a>{email}</a>
             </div>
             <button 
-              className={`px-3 text-[#515151] hover:bg-[#414141] border-0 py-2 focus:outline-none rounded text-base transition duration-300 ease-in-out tracking-wider underline`}
+              className={`px-3 text-[#515151] border-0 py-2 focus:outline-none rounded text-base transition duration-300 ease-in-out tracking-wider underline`}
               onClick={handleLogOut}
             >
               Log out
