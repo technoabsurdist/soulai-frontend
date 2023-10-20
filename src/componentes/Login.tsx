@@ -4,9 +4,16 @@ interface LoginProps {
     handleUserLogin: () => void;
 }
 
+enum View {
+    LOGIN,
+    SIGNUP,
+}
+
 const Login = ({ handleUserLogin }: LoginProps) => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState(""); 
+    const [name, setName] = useState("")
+    const [view, setView] = useState<View>(View.LOGIN); 
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -41,11 +48,10 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                 credentials: 'include',
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ name, email, password }),
             });
 
             if (signupResponse.ok) {
-                // Automatically log the user in after a successful signup
                 const loginResponse = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/login', {
                     credentials: 'include',
                     method: 'POST',
@@ -53,11 +59,11 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                     body: JSON.stringify({ email, password }),
                 });
                 
-                const data = await loginResponse.json();
+                const data = await loginResponse.json()
                 if (loginResponse.ok) {
-                    console.log('Signup and login success');
-                    console.log('login success');
-                    localStorage.setItem('userId', data.userId);
+                    localStorage.setItem('userId', data.userId)
+                    localStorage.setItem('email', email)
+                    localStorage.setItem('name', name)
                     handleUserLogin();
                 } else {
                     console.error('Login error after signup');
@@ -86,37 +92,85 @@ const Login = ({ handleUserLogin }: LoginProps) => {
   
         <div className="flex w-full justify-center lg:flex-row flex-col mx-auto items-end sm:space-x-4 sm:space-y-0 space-y-4">
           <div className="relative md:mb-4" style={{ width: '300px' }}> 
-              <input
-                  type="email"
-                  name="nota"
-                  placeholder="Email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)} 
-                  className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
-              />
-              <input
-                  type="password"
-                  name="nota"
-                  placeholder="Password"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  className="mt-3 w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
-              />
-              <div className="flex w-full justify-center mt-5">
-                <button
-                    onClick={handleLogin}
-                    className="mr-2 text-white bg-[#313131] border-0 py-2 px-3 focus:outline-none hover:bg-[#212121] rounded text-base font-medium transition duration-300 ease-in-out w-[47%] tracking-wider"
-                >
-                    Log In 
-                </button>
-                <button
-                    onClick={handleSignup}
-                    className="ml-2 text-white bg-[#313131] border-0 py-2 px-3 focus:outline-none hover:bg-[#212121] rounded text-base font-medium transition duration-300 ease-in-out w-[47%] tracking-wider"
-                >
-                    Sign Up 
-                </button>
- 
-              </div>
+              {view === View.LOGIN ? (
+            
+                <>
+                    <input
+                        type="email"
+                        name="nota"
+                        placeholder="Email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)} 
+                        className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
+                    />
+                    <input
+                        type="password"
+                        name="nota"
+                        placeholder="Password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        className="mt-3 w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
+                    />
+                    <div className="flex w-full justify-center mt-5">
+                        <button
+                            onClick={handleLogin}
+                            className="mr-2 text-white bg-[#313131] border-0 py-2 px-1 focus:outline-none hover:bg-[#212121] rounded text-base font-medium transition duration-300 ease-in-out w-[47%] tracking-wider"
+                        >
+                            Log In 
+                        </button>
+        
+                    </div>
+                        <button
+                            onClick={() => setView(View.SIGNUP)}
+                            className="mr-2 mt-1 text-[#717171] underline transition duration-300 ease-in-out w-[95.5%] tracking-wider"
+                        >
+                            Sign Up?
+                        </button>
+                </>
+              ) : (
+                <>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        value={name}
+                        onChange={e => setName(e.target.value)} 
+                        className="mb-3 w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
+                    />
+                    <input
+                        type="email"
+                        name="nota"
+                        placeholder="Email"
+                        value={email}
+                        onChange={e => setEmail(e.target.value)} 
+                        className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
+                    />
+                    <input
+                        type="password"
+                        name="nota"
+                        placeholder="Password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        className="mt-3 w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
+                    />
+                    <div className="flex w-full justify-center mt-5">
+                        <button
+                            onClick={handleSignup}
+                            className="mr-2 text-white bg-[#313131] border-0 py-2 px-1 focus:outline-none hover:bg-[#212121] rounded text-base font-medium transition duration-300 ease-in-out w-[60%] tracking-wider"
+                        >
+                            Create Account 
+                        </button>
+        
+                    </div>
+                    <button
+                        onClick={() => setView(View.LOGIN)}
+                        className="mr-2 mt-1 text-[#717171] text-[11px] underline transition duration-300 ease-in-out w-[95.5%] tracking-wider"
+                    >
+                        Already have an account? 
+                    </button>
+                </>
+              )}
+
         </div>
         </div>
       </div>
