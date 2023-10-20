@@ -18,14 +18,19 @@ function App() {
 
   useEffect(() => {
     setUserId(localStorage.getItem("userId") || "")
-    setEmail(localStorage.getItem("email") || "")
     if (userId) {
       setLoggedIn(true)
     }
   }, [setUserId, userId])
 
+  useEffect(() => {
+    setEmail(localStorage.getItem("email") || "")
+  }, [setEmail])
+
   const handleUserLogin = () => {
     setLoggedIn(true);
+    setUserId(localStorage.getItem("userId") || "")
+    setEmail(localStorage.getItem("email") || "")
   }
 
   useEffect(() => {
@@ -77,8 +82,8 @@ function App() {
             <>
               <div className="container mx-auto lg:w-full p-5 text-justify text-sm text-zinc-500 flex justify-between">
                 <div>
-                <a className="tracking-wide font-bold">{email.split("@")[0].toUpperCase() || "UNKNOWN"}</a> <br /> 
-                <a>{email || "unkown@unknown.com"}</a>
+                <a className="tracking-wide font-bold">{email.split("@")[0].toUpperCase()}</a> <br /> 
+                <a>{email}</a>
                 </div>
                 <button 
                   className={`px-3 text-[#515151] hover:bg-[#414141] border-0 py-2 focus:outline-none rounded text-base transition duration-300 ease-in-out tracking-wider underline`}
