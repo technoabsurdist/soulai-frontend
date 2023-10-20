@@ -11,7 +11,7 @@ function App() {
   const { fetchNotes } = useStore(); 
   const [newNote, setNewNote] = useState<string>("")
   const [numChars, setNumChars] = useState<number>(0); 
-  const [loggedIn, setLoggedIn] = useState<boolean>(true); // Change before deploy!!! 
+  const [loggedIn, setLoggedIn] = useState<boolean>(false); 
   const [view, setView] = useState<View>(View.NOTES); 
   const [userId, setUserId] = useState<string>(localStorage.getItem("userId") || "");
   const [email, setEmail] = useState<string>(localStorage.getItem("email") || "")
