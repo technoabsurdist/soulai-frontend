@@ -13,7 +13,8 @@ const Chat = ({ view, handleViewNotes, handleViewChat}: ChatProps) => {
   
     useEffect(() => {
       const fetchChatHistory = async () => {
-        const response = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/chat/history', {
+        const userId = localStorage.getItem('userId');
+        const response = await fetch(`https://soul-backend-b87052aa2595.herokuapp.com/chat/history/${userId}`, {
           credentials: 'include',
           method: 'GET',
         });
@@ -37,13 +38,14 @@ const Chat = ({ view, handleViewNotes, handleViewChat}: ChatProps) => {
         setChatHistory(lastFiveMessages);
     
         // Fetch model response and update state (limited to last 5 messages)
+        const userId = localStorage.getItem('userId');
         const response = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/chat', {
           credentials: 'include',
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ text: userInput }),
+          body: JSON.stringify({ userId, text: userInput }),
         });
         const data = await response.json();
         const modelReply = { type: 'model', text: data.model_response };
