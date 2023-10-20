@@ -32,17 +32,31 @@ function App() {
   const handleAddNote = async () => {
     if (newNote.trim() !== "") {
       try {
-        const response = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/entry', {
-          credentials: 'include',
+        const options = {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text: newNote.trim() }),
-        });
-        if (response.ok) {
-          setNewNote("");
-          setNumChars(0);
-          fetchNotes(); 
-        }
+          headers: {
+            cookie: 'connect.sid=s%253A6QdYJIEHfqQXEJwQM6z2RPBG3o5xpiaH.zbjSSmkDSZPbw%252Fl7%252F1AHMaglfwTVvoXPkJthBQjg%252FvE',
+            'Content-Type': 'application/json',
+            'User-Agent': 'insomnia/8.2.0'
+          },
+          body: `{"text":"${newNote}"}`
+        };
+        
+        fetch('https://soul-backend-b87052aa2595.herokuapp.com/entry', options)
+          .then(response => {
+            response.json()
+            setNewNote("");
+            setNumChars(0);
+            fetchNotes(); 
+          })
+          .then(response => console.log(response))
+          .catch(err => console.error(err))
+
+        // if (response.ok) {
+        //   setNewNote("");
+        //   setNumChars(0);
+        //   fetchNotes(); 
+        // }
       } catch (error) {
         console.error('Error:', error);
       }
