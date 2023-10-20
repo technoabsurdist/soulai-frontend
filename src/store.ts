@@ -14,7 +14,8 @@ export const useStore = create<StoreState>((set, get) => ({
   
   fetchNotes: async () => {
     try {
-      const response = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/entry', {
+      const userId = localStorage.getItem('userId');
+      const response = await fetch(`https://soul-backend-b87052aa2595.herokuapp.com/entry/${userId}`, {
         credentials: 'include',
       });
       if (response.status === 200) {
@@ -26,7 +27,7 @@ export const useStore = create<StoreState>((set, get) => ({
     } catch (error) {
       console.error('Error fetching notes:', error);
     }
-  },
+  },  
   
   addNote: async (text) => {
     const texto = text.trim();
