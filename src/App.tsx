@@ -76,22 +76,26 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen mx-10">
+      <div className="container mx-auto lg:w-full p-5 text-justify text-sm text-zinc-500 flex justify-between">
+        <div></div>
+        {loggedIn ?
+          (<div>
+            <a className="tracking-wide font-bold">{email.split("@")[0].toUpperCase()}</a> <br /> 
+            <a>{email}</a>
+          </div>
+        ) : (<div> </div>)}
+        <button 
+          className={`px-3 text-[#515151] hover:bg-[#414141] border-0 py-2 focus:outline-none rounded text-base transition duration-300 ease-in-out tracking-wider underline`}
+          onClick={handleLogOut}
+        >
+          Log out
+        </button>
+      </div>
       {loggedIn ? (
         <>
           {view === View.NOTES ? (
             <>
-              <div className="container mx-auto lg:w-full p-5 text-justify text-sm text-zinc-500 flex justify-between">
-                <div>
-                <a className="tracking-wide font-bold">{email.split("@")[0].toUpperCase()}</a> <br /> 
-                <a>{email}</a>
-                </div>
-                <button 
-                  className={`px-3 text-[#515151] hover:bg-[#414141] border-0 py-2 focus:outline-none rounded text-base transition duration-300 ease-in-out tracking-wider underline`}
-                  onClick={handleLogOut}
-                >
-                  Log out
-                </button>
-              </div>
+
               <Header
                 view={view}
                 newNote={newNote}
