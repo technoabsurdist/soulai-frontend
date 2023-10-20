@@ -13,6 +13,14 @@ function App() {
   const [numChars, setNumChars] = useState<number>(0); 
   const [loggedIn, setLoggedIn] = useState<boolean>(false); 
   const [view, setView] = useState<View>(View.NOTES); 
+  const [userId, setUserId] = useState<string>(localStorage.getItem("userId") || "");
+
+  useEffect(() => {
+    setUserId(localStorage.getItem("userId") || "")
+    if (userId) {
+      setLoggedIn(true)
+    }
+  }, [setUserId, userId])
 
   const handleUserLogin = () => {
     setLoggedIn(true);
