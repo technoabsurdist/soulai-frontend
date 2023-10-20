@@ -15,7 +15,9 @@ export const useStore = create<StoreState>((set, get) => ({
   fetchNotes: async () => {
     try {
       const userId = localStorage.getItem('userId');
-      const response = await fetch(`https://soul-backend-b87052aa2595.herokuapp.com/entry/${userId}`, {
+      const url = `https://soul-backend-b87052aa2595.herokuapp.com/entry/${userId}`;
+      console.log(url);
+      const response = await fetch(url, {
         credentials: 'include',
       });
       if (response.status === 200) {
