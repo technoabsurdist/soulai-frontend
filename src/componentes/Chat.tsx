@@ -100,7 +100,7 @@ const Chat = ({ view, handleViewNotes, handleViewChat}: ChatProps) => {
                     />
                 </div>
                 <button 
-                    className="text-white bg-[#b9aee8] border-0 py-2 px-6 focus:outline-none hover:bg-[#2fa0d6] rounded text-base font-bold transition duration-300 ease-in-out tracking-wider shadow-lg shadow-indigo-500/50"
+                    className="text-white bg-[#b9aee8] border-0 py-2 px-6 focus:outline-none rounded text-base font-bold transition duration-300 ease-in-out tracking-wider shadow-lg shadow-indigo-500/50"
                     onClick={handleSubmit}
                 >
                     Send
