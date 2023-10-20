@@ -33,7 +33,7 @@ function App() {
     if (newNote.trim() !== "") {
       try {
         const title = 'Testing Title 1';
-        const response = await fetch('http://localhost:5001/entry', {
+        const response = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/entry', {
           credentials: 'include',
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

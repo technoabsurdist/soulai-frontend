@@ -14,7 +14,7 @@ export const useStore = create<StoreState>((set, get) => ({
   
   fetchNotes: async () => {
     try {
-      const response = await fetch('http://localhost:5001/entry', {
+      const response = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/entry', {
         credentials: 'include',
       });
       if (response.status === 200) {
@@ -35,7 +35,7 @@ export const useStore = create<StoreState>((set, get) => ({
       return;
     }
 
-    await fetch('http://localhost:5001/entry', {
+    await fetch('https://soul-backend-b87052aa2595.herokuapp.com/entry', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -54,7 +54,7 @@ export const useStore = create<StoreState>((set, get) => ({
       return;
     }
 
-    await fetch(`http://localhost:5001/entry/${id}`, {
+    await fetch(`https://soul-backend-b87052aa2595.herokuapp.com/entry/${id}`, {
       method: 'PUT',
       credentials: 'include',
       headers: {
@@ -67,7 +67,7 @@ export const useStore = create<StoreState>((set, get) => ({
   },
   
   deleteNote: async (id) => {
-    await fetch(`http://localhost:5001/entry/${id}`, {
+    await fetch(`https://soul-backend-b87052aa2595.herokuapp.com/entry/${id}`, {
       method: 'DELETE',
       credentials: 'include'
     });

@@ -13,7 +13,7 @@ const Chat = ({ view, handleViewNotes, handleViewChat}: ChatProps) => {
   
     useEffect(() => {
       const fetchChatHistory = async () => {
-        const response = await fetch('http://localhost:5001/chat/history', {
+        const response = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/chat/history', {
           credentials: 'include',
           method: 'GET',
         });
@@ -37,7 +37,7 @@ const Chat = ({ view, handleViewNotes, handleViewChat}: ChatProps) => {
         setChatHistory(lastFiveMessages);
     
         // Fetch model response and update state (limited to last 5 messages)
-        const response = await fetch('http://localhost:5001/chat', {
+        const response = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/chat', {
           credentials: 'include',
           method: 'POST',
           headers: {

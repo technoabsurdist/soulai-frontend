@@ -12,7 +12,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:5001/login', {
+            const response = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/login', {
                 credentials: 'include',
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -34,7 +34,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
     const handleSignup = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const signupResponse = await fetch('http://localhost:5001/signup', {
+            const signupResponse = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/signup', {
                 credentials: 'include',
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -43,7 +43,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
 
             if (signupResponse.ok) {
                 // Automatically log the user in after a successful signup
-                const loginResponse = await fetch('http://localhost:5001/login', {
+                const loginResponse = await fetch('https://soul-backend-b87052aa2595.herokuapp.com/login', {
                     credentials: 'include',
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
