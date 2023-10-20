@@ -77,7 +77,6 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen mx-10">
       <div className="container mx-auto lg:w-full p-5 text-justify text-sm text-zinc-500 flex justify-between">
-        <div></div>
         {loggedIn ?
           (<div>
             <a className="tracking-wide font-bold">{email.split("@")[0].toUpperCase()}</a> <br /> 
