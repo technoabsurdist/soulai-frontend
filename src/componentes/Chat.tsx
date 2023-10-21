@@ -74,7 +74,7 @@ const Chat = ({ view, handleViewNotes, handleViewChat}: ChatProps) => {
                 </div>
                 <p className="mt-10 text-s text-[#b9aee8] text-600 tracking-widest font-bold uppercase tracking-widest [text-shadow:1px_1px_1px_var(--tw-shadow-color)] shadow-indigo-500">
                     Chat with your own personal AI-based psychological assistant named Soul. <br /> 
-                    Soul has access to your past entries and can help you reflect on your past experiences and emotions.
+                    Alma has access to your past entries and can help you reflect on your past experiences and emotions.
                 </p>
             </div>
 

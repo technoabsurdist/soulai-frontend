@@ -38,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({
         </button>
         </div>
         <h1 className="mt-10 mb-4 text-6xl md:text-5xl lg:text-7xl font-black text-white drop-shadow-2xl tracking-wider [text-shadow:1px_1px_1px_var(--tw-shadow-color)] shadow-indigo-500">
-          Soul
+          Alma
         </h1>
         <h2 className="text-s text-[#b9aee8] text-600 tracking-widest font-bold uppercase tracking-widest [text-shadow:1px_1px_1px_var(--tw-shadow-color)] shadow-indigo-500">
           Organize your thoughts and pinpoint behavioral patterns; <br /> 

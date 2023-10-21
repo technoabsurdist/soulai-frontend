@@ -1,5 +1,5 @@
 <h1 align="center">
-  Soul AI 
+  Alma AI 
 </h1>
 
 <!-- <p align="center"> -->
@@ -16,7 +16,7 @@ Most importantly, we decode your subconscious, offering a clearer understanding 
 - **Thoughts Logging**: Streamlined process for thoughts, moods, or anything-documentation in a user-friendly format.
 - **Automated Title, Tag, and Image Generation**: Effortless organization of your entries.
 - **Insight Generator**: we offer insights that demystify your subconscious, bringing clarity to your inner world.
-- **Soul Chat**: Talk to a model fine-tuned on your insights. Made just for you.  
+- **Alma Chat**: Talk to a model fine-tuned on your insights. Made just for you.  
 
 
 ## Frontend 
