@@ -33,6 +33,7 @@ function App() {
     setLoggedIn(true);
     setUserId(localStorage.getItem("userId") || "")
     setEmail(localStorage.getItem("email") || "")
+    setName(localStorage.getItem('name') || "")
   }
 
   useEffect(() => {
