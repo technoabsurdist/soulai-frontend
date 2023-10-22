@@ -137,7 +137,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                         placeholder="Name"
                         value={name}
                         onChange={e => setName(e.target.value)} 
-                        className="mb-3 w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
+                        className="mb-3 w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider shadow-md shadow-indigo-500/50"
                     />
                     <input
                         type="email"
@@ -145,7 +145,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                         placeholder="Email"
                         value={email}
                         onChange={e => setEmail(e.target.value)} 
-                        className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
+                        className="w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider shadow-md shadow-indigo-500/50"
                     />
                     <input
                         type="password"
@@ -153,7 +153,7 @@ const Login = ({ handleUserLogin }: LoginProps) => {
                         placeholder="Password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
-                        className="mt-3 w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider"
+                        className="mt-3 w-full bg-zinc-700 bg-opacity-40 rounded border border-[#b9aee8] focus: focus:ring-2 focus:ring-[#2fa0d6] focus:bg-transparent text-base outline-none text-zinc-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out tracking-wider shadow-md shadow-indigo-500/50"
                     />
                     <div className="flex w-full justify-center mt-5">
                         <button
